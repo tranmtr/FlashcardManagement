@@ -3,17 +3,22 @@ package org.entities.cards;
 import org.entities.BaseEntity;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.List;
 
-public class Deck extends BaseEntity {
+public class SingleDeck extends BaseEntity implements DeckComponent {
     private String name;
     private String description;
+    private String parentId;
     private List<Flashcard> flashcards;
     private boolean isFavourite;
-    public Deck(String id, LocalDate timeCreated, String name, String description, List<Flashcard> flashcards, boolean isFavourite) {
+
+    public SingleDeck(String id, LocalDateTime timeCreated, String name, String description,
+                      String parentId, List<Flashcard> flashcards, boolean isFavourite) {
         super(id, timeCreated);
         this.name = name;
         this.description = description;
+        this.parentId = parentId;
         this.flashcards = flashcards;
         this.isFavourite = isFavourite;
     }
@@ -56,5 +61,18 @@ public class Deck extends BaseEntity {
 
     public void removeFlashcard(Flashcard flashcard) {
         flashcards.remove(flashcard);
+    }
+
+    public String getIdParents() {
+        return parentId;
+    }
+
+    public void setIdParents(String parentId) {
+        this.parentId = parentId;
+    }
+
+    @Override
+    public void show() {
+        System.out.println("Deck: " + this.name);
     }
 }

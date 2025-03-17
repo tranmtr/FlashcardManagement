@@ -3,12 +3,13 @@ package org.entities.cards;
 import org.entities.BaseEntity;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 public class Category extends BaseEntity {
     private String name;
     private String description;
 
-    public Category(String id, LocalDate timeCreated, String name, String description) {
+    public Category(String id, LocalDateTime timeCreated, String name, String description) {
         super(id, timeCreated);
         this.name = name;
         this.description = description;

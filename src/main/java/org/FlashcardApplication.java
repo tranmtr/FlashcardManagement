@@ -1,12 +1,23 @@
 package org;
 
+import org.database.DatabaseSingleton;
+import org.database.UsersTable;
 import org.study_mode.StudyMode;
+
+import java.sql.Connection;
 
 public class FlashcardApplication {
     public static void main(String[] args) {
-        StudyMode currentMode = StudyMode.FLIP_MODE;
+        // Lấy instance duy nhất của database
+        DatabaseSingleton db = DatabaseSingleton.getInstance();
 
-        System.out.println("Bạn đang học theo chế độ: " + currentMode.getModeName());
-        System.out.println("Mô tả: " + currentMode.getDescription());
+        // Lấy kết nối từ instance này
+        Connection conn = db.getConnection();
+
+        if (conn != null) {
+            System.out.println("Kết nối thành công!");
+        } else {
+            System.out.println("Kết nối thất bại!");
+        }
     }
 }

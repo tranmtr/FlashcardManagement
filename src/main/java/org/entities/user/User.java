@@ -3,6 +3,7 @@ package org.entities.user;
 import org.entities.BaseEntity;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 public class User extends BaseEntity {
     private String username;
@@ -10,7 +11,7 @@ public class User extends BaseEntity {
     private String name;
     private String email;
 
-    public User(String id, LocalDate timeCreated, String username, String password, String name, String email) {
+    public User(String id, LocalDateTime timeCreated, String username, String password, String name, String email) {
         super(id, timeCreated);
         this.username = username;
         this.password = password;

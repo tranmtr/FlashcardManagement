@@ -1,6 +1,7 @@
 module org {
     requires javafx.controls;
     requires javafx.fxml;
+    requires java.sql;
 
 
     opens org to javafx.fxml;

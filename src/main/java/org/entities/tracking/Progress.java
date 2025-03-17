@@ -3,6 +3,7 @@ package org.entities.tracking;
 import org.entities.BaseEntity;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 public class Progress extends BaseEntity {
     private String userId;
@@ -13,7 +14,7 @@ public class Progress extends BaseEntity {
     private double successRate;
     private LocalDate nextReviewDate;
 
-    public Progress(String id, LocalDate timeCreated, String userId, String flashcardId, LocalDate lastReviewed,
+    public Progress(String id, LocalDateTime timeCreated, String userId, String flashcardId, LocalDate lastReviewed,
                     int totalReview, int correctCount, double successRate, LocalDate nextReviewDate) {
         super(id, timeCreated);
         this.userId = userId;

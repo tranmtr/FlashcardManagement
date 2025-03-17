@@ -1,12 +1,12 @@
 package org.entities;
 
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 public abstract class BaseEntity {
     private String id;
-    private LocalDate timeCreated;
+    private LocalDateTime timeCreated;
 
-    public BaseEntity(String id, LocalDate timeCreated) {
+    public BaseEntity(String id, LocalDateTime timeCreated) {
         this.id = id;
         this.timeCreated = timeCreated;
     }
@@ -19,11 +19,11 @@ public abstract class BaseEntity {
         this.id = id;
     }
 
-    public LocalDate getTimeCreated() {
+    public LocalDateTime getTimeCreated() {
         return timeCreated;
     }
 
-    public void setTimeCreated(LocalDate timeCreated) {
+    public void setTimeCreated(LocalDateTime timeCreated) {
         this.timeCreated = timeCreated;
     }
 }

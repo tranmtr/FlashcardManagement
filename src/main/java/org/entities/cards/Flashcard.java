@@ -3,22 +3,23 @@ package org.entities.cards;
 import org.entities.BaseEntity;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 public class Flashcard extends BaseEntity {
-    private String deckId;
+    private String singleDeckId;
     private String frontText;
     private String backText;
     private String imagePath;
-    private LocalDate lastReview;
+    private LocalDateTime lastReview;
     private int reviewCount;
     private int difficulty;
     private boolean isFavourite;
     private String comment;
 
-    public Flashcard(String id, LocalDate timeCreated, String deckId, String frontText,
-                     String backText, String imagePath, LocalDate lastReview, int reviewCount, int difficulty, boolean isFavourite) {
+    public Flashcard(String id, LocalDateTime timeCreated, String singleDeckId, String frontText,
+                     String backText, String imagePath, LocalDateTime lastReview, int reviewCount, int difficulty, boolean isFavourite) {
         super(id, timeCreated);
-        this.deckId = deckId;
+        this.singleDeckId = singleDeckId;
         this.frontText = frontText;
         this.backText = backText;
         this.imagePath = imagePath;
@@ -28,10 +29,10 @@ public class Flashcard extends BaseEntity {
         this.isFavourite = isFavourite;
     }
 
-    public Flashcard(String id, LocalDate timeCreated, String deckId, String frontText, String backText,
-                     String imagePath, LocalDate lastReview, int reviewCount, int difficulty, boolean isFavourite, String comment) {
+    public Flashcard(String id, LocalDateTime timeCreated, String singleDeckId, String frontText, String backText,
+                     String imagePath, LocalDateTime lastReview, int reviewCount, int difficulty, boolean isFavourite, String comment) {
         super(id, timeCreated);
-        this.deckId = deckId;
+        this.singleDeckId = singleDeckId;
         this.frontText = frontText;
         this.backText = backText;
         this.imagePath = imagePath;
@@ -42,12 +43,12 @@ public class Flashcard extends BaseEntity {
         this.comment = comment;
     }
 
-    public String getDeckId() {
-        return deckId;
+    public String getSingleDeckId() {
+        return singleDeckId;
     }
 
-    public void setDeckId(String deckId) {
-        this.deckId = deckId;
+    public void setSingleDeckId(String singleDeckId) {
+        this.singleDeckId = singleDeckId;
     }
 
     public String getFrontText() {
@@ -74,11 +75,11 @@ public class Flashcard extends BaseEntity {
         this.imagePath = imagePath;
     }
 
-    public LocalDate getLastReview() {
+    public LocalDateTime getLastReview() {
         return lastReview;
     }
 
-    public void setLastReview(LocalDate lastReview) {
+    public void setLastReview(LocalDateTime lastReview) {
         this.lastReview = lastReview;
     }
 

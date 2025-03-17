@@ -3,6 +3,7 @@ package org.entities.tracking;
 import org.entities.BaseEntity;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 public class StudySession extends BaseEntity {
     private String userId;
@@ -11,7 +12,7 @@ public class StudySession extends BaseEntity {
     private int timeSpent;
     private boolean isCorrect;
 
-    public StudySession(String id, LocalDate timeCreated, String userId, String flashcardId,
+    public StudySession(String id, LocalDateTime timeCreated, String userId, String flashcardId,
                         LocalDate reviewDate, int timeSpent, boolean isCorrect) {
         super(id, timeCreated);
         this.userId = userId;
