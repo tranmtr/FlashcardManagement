@@ -8,12 +8,12 @@ import java.time.LocalDateTime;
 public class StudySession extends BaseEntity {
     private String userId;
     private String flashcardId;
-    private LocalDate reviewDate;
+    private LocalDateTime reviewDate;
     private int timeSpent;
     private boolean isCorrect;
 
     public StudySession(String id, LocalDateTime timeCreated, String userId, String flashcardId,
-                        LocalDate reviewDate, int timeSpent, boolean isCorrect) {
+                        LocalDateTime reviewDate, int timeSpent, boolean isCorrect) {
         super(id, timeCreated);
         this.userId = userId;
         this.flashcardId = flashcardId;
@@ -38,11 +38,11 @@ public class StudySession extends BaseEntity {
         this.flashcardId = flashcardId;
     }
 
-    public LocalDate getReviewDate() {
+    public LocalDateTime getReviewDate() {
         return reviewDate;
     }
 
-    public void setReviewDate(LocalDate reviewDate) {
+    public void setReviewDate(LocalDateTime reviewDate) {
         this.reviewDate = reviewDate;
     }
 

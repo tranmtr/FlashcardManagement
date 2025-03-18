@@ -14,11 +14,6 @@ public class DatabaseSingleton {
     private DatabaseSingleton() {
         try {
             connection = DriverManager.getConnection(URL);
-            UsersTable.createUsersTable(connection);
-            DeckGroupsTable.createDeckGroupsTable(connection);
-            SingleDecksTable.createSingleDecksTable(connection);
-            FlashcardsTable.createFlashcardsTable(connection);
-
             System.out.println("Ket noi SQLite thanh cong");
         } catch (SQLException e) {
             e.printStackTrace();

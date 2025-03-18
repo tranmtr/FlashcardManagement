@@ -5,37 +5,35 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-public class SingleDecksTable {
+public class StudySessionTable {
     static Connection conn = DatabaseSingleton.getInstance().getConnection();
 
-    public static void createSingleDecksTable() {
+    public static void createStudySessionTable() {
         String createTableSQL = """
-                CREATE TABLE IF NOT EXISTS single_decks (
+                CREATE TABLE IF NOT EXISTS study_session (
                     id TEXT PRIMARY KEY,
-                    name TEXT NOT NULL,
-                    description TEXT,
-                    parent_id TEXT,
                     user_id TEXT NOT NULL,
-                    is_favourite INTEGER DEFAULT 0,
-                    time_created TEXT DEFAULT CURRENT_TIMESTAMP,
-                    FOREIGN KEY (parent_id) REFERENCES deck_groups(id) ON DELETE CASCADE,
+                    flashcard_id TEXT NOT NULL,
+                    review_date TEXT DEFAULT CURRENT_TIMESTAMP,
+                    time_spent INTEGER DEFAULT 0,
+                    is_correct INTEGER DEFAULT 0,
                     FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
                 );
                 """;
         try (PreparedStatement stmt = conn.prepareStatement(createTableSQL)) {
             stmt.execute();
-            System.out.println("Table 'single_decks' checked/ created successfully.");
+            System.out.println("Table 'study_session' checked/ created successfully.");
         } catch (SQLException e) {
             e.printStackTrace();
         }
     }
 
-    public static void dropUsersTable() {
-        String dropTableSQL = "DROP TABLE IF EXISTS single_decks;";
+    public static void dropStudySessionTable() {
+        String dropTableSQL = "DROP TABLE IF EXISTS study_session;";
 
         try (PreparedStatement stmt = conn.prepareStatement(dropTableSQL)) {
             stmt.execute();
-            System.out.println("Table 'single_decks' deleted successfully.");
+            System.out.println("Table 'study_session' deleted successfully.");
         } catch (SQLException e) {
             e.printStackTrace();
         }

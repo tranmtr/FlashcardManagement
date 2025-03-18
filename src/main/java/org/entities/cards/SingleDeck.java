@@ -4,22 +4,29 @@ import org.entities.BaseEntity;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 
 public class SingleDeck extends BaseEntity implements DeckComponent {
     private String name;
     private String description;
     private String parentId;
+    private String userId;
     private List<Flashcard> flashcards;
     private boolean isFavourite;
 
     public SingleDeck(String id, LocalDateTime timeCreated, String name, String description,
-                      String parentId, List<Flashcard> flashcards, boolean isFavourite) {
+                      String parentId, String userId, List<Flashcard> flashcards, boolean isFavourite) {
         super(id, timeCreated);
         this.name = name;
         this.description = description;
         this.parentId = parentId;
-        this.flashcards = flashcards;
+        this.userId = userId;
+        if (flashcards == null) {
+            this.flashcards = new ArrayList<Flashcard>();
+        } else {
+            this.flashcards = flashcards;
+        }
         this.isFavourite = isFavourite;
     }
 
@@ -63,12 +70,21 @@ public class SingleDeck extends BaseEntity implements DeckComponent {
         flashcards.remove(flashcard);
     }
 
-    public String getIdParents() {
+    public String getParentId() {
         return parentId;
     }
 
-    public void setIdParents(String parentId) {
+    @Override
+    public void setParentId(String parentId) {
         this.parentId = parentId;
+    }
+
+    public String getUserId() {
+        return userId;
+    }
+
+    public void setUserId(String userId) {
+        this.userId = userId;
     }
 
     @Override

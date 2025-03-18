@@ -7,6 +7,7 @@ import java.time.LocalDateTime;
 
 public class Flashcard extends BaseEntity {
     private String singleDeckId;
+    private String userId;
     private String frontText;
     private String backText;
     private String imagePath;
@@ -16,10 +17,11 @@ public class Flashcard extends BaseEntity {
     private boolean isFavourite;
     private String comment;
 
-    public Flashcard(String id, LocalDateTime timeCreated, String singleDeckId, String frontText,
+    public Flashcard(String id, LocalDateTime timeCreated, String singleDeckId, String userId, String frontText,
                      String backText, String imagePath, LocalDateTime lastReview, int reviewCount, int difficulty, boolean isFavourite) {
         super(id, timeCreated);
         this.singleDeckId = singleDeckId;
+        this.userId = userId;
         this.frontText = frontText;
         this.backText = backText;
         this.imagePath = imagePath;
@@ -29,10 +31,11 @@ public class Flashcard extends BaseEntity {
         this.isFavourite = isFavourite;
     }
 
-    public Flashcard(String id, LocalDateTime timeCreated, String singleDeckId, String frontText, String backText,
+    public Flashcard(String id, LocalDateTime timeCreated, String singleDeckId, String userId, String frontText, String backText,
                      String imagePath, LocalDateTime lastReview, int reviewCount, int difficulty, boolean isFavourite, String comment) {
         super(id, timeCreated);
         this.singleDeckId = singleDeckId;
+        this.userId = userId;
         this.frontText = frontText;
         this.backText = backText;
         this.imagePath = imagePath;
@@ -113,5 +116,13 @@ public class Flashcard extends BaseEntity {
 
     public void setComment(String comment) {
         this.comment = comment;
+    }
+
+    public String getUserId() {
+        return userId;
+    }
+
+    public void setUserId(String userId) {
+        this.userId = userId;
     }
 }
